@@ -1,0 +1,3 @@
+export const [aboutPunjab, dialogAboutPunjab] = [
+  "Punjab is the second-largest province of Pakistan by land area and the most populous Pakistani province. Forming the bulk of the transnational Punjab region between Pakistan and India, it is bounded locally by Sindh to the south, Balochistan to the west, Khyber Pakhtunkhwa to the northwest, the Islamabad Capital Territory to the north, and the Pakistani-administered territory of Azad Jammu and Kashmir to the northeast. On its eastern side, it is bounded by the India–Pakistan border, sharing an international boundary with the Indian states of Punjab and Rajasthan to the east and southeast, respectively, and a disputed boundary with the Indian-administered territory of Jammu and Kashmir to the northeast.",
+];
