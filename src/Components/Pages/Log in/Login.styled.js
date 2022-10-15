@@ -88,7 +88,7 @@ export const Form = styled.form`
 // --------------------border of input field styling---------------------------
 
 export const BorderDiv = styled.div`
-  margin-bottom: 2.5%;
+  margin-bottom: 9px;
   border: 1.5px solid ${black};
   padding: 2%;
   display: flex;
@@ -133,9 +133,9 @@ export const ErrorNameDiv = styled.div`
 export const ErrorConfirmPasswordDiv = styled.div`
   p {
     color: red;
+    display: none;
     margin-bottom: 7px;
     font-size: 15px;
-    display: none;
     text-align: left;
 
     &.cshow {
@@ -144,9 +144,25 @@ export const ErrorConfirmPasswordDiv = styled.div`
   }
 `;
 
-// --------------------error of confrim password styling---------------------------
+// --------------------error  password styling---------------------------
 
 export const ErrorPasswordDiv = styled.div`
+  p {
+    color: red;
+    margin-bottom: 7px;
+    font-size: 15px;
+    text-align: left;
+    display: none;
+
+    &.pshow {
+      display: block;
+    }
+  }
+`;
+
+// --------------------error of confrim password styling---------------------------
+
+export const ErrorMacthPasswordDiv = styled.div`
   p {
     color: red;
     margin-bottom: 7px;
@@ -154,7 +170,7 @@ export const ErrorPasswordDiv = styled.div`
     display: none;
     text-align: left;
 
-    &.pshow {
+    &.mshow {
       display: block;
     }
   }

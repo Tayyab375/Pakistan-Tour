@@ -9,6 +9,7 @@ import {
   BorderDiv,
   ErrorConfirmPasswordDiv,
   ErrorEmailDiv,
+  ErrorMacthPasswordDiv,
   ErrorNameDiv,
   ErrorPasswordDiv,
   Form,
@@ -25,6 +26,7 @@ const SignUp = () => {
   const [cshow, setcShow] = useState(false); // show confirm password error line
   const [showPassword, setShowPassword] = useState(false); // change showPassword icon
   const [confirmShowPassword, setConfirmShowPassword] = useState(false); //change show Confirm Password icon
+  const [mshow, setmShow] = useState(false);
 
   // to store the info of email and password
   const [user, setUser] = useState({
@@ -129,16 +131,13 @@ const SignUp = () => {
       if (errorConfirmPasswordValue === 0) {
         setcShow(true);
       }
+    } else if (errorPasswordValue !== errorConfirmPasswordValue) {
+      setmShow(true);
     } else {
       console.log(user);
       alert(
         `Thank you, ${user.name}. Your has been register to our website with you email: ${user.email} `
       );
-      //   errorEmail.value = "";
-      //   errorPassword.value = "";
-      //   errorName.value = "";
-      //   errorConfirmPassword.value = "";
-
       setUser({
         name: "",
         email: "",
@@ -159,6 +158,9 @@ const SignUp = () => {
     }
     if (errorConfirmPasswordValue !== 0) {
       setcShow(false);
+    }
+    if (errorPasswordValue === errorConfirmPasswordValue) {
+      setmShow(false);
     }
   };
 
@@ -258,6 +260,13 @@ const SignUp = () => {
                 Please insert your confirm password
               </p>
             </ErrorConfirmPasswordDiv>
+
+            {/* error do not match with password */}
+            <ErrorMacthPasswordDiv>
+              <p className={mshow ? "mshow" : null}>
+                Do not match with password
+              </p>
+            </ErrorMacthPasswordDiv>
 
             {/* ---------submit button--------- */}
             <input type="submit" value="Sign Up" className="submit" />
