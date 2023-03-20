@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { green } from "../Reusable/Colors";
-import { white } from "../Reusable/Colors";
-import { lightGreen } from "../Reusable/Colors";
-import { drakBlue } from "../Reusable/Colors";
+import { green, white, lightGreen, drakBlue } from "../Reusable/Colors";
 
 export const StyledNav = styled.nav`
+  position: sticky;
+  top: 0;
   padding: 0 2%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 8vh;
+  height: 9vh;
   background-color: ${green};
+  z-index: 10000000;
 `;
 
 export const LogoLink = styled(Link)`
@@ -70,22 +70,44 @@ export const NavUnorderList = styled.ul`
     text-decoration: none;
     color: ${white};
     transition: 0.3s ease-in;
+    position: relative;
 
     :hover {
       color: ${lightGreen};
-      border-bottom: 3px solid ${lightGreen};
+    }
+
+    ::after {
+      content: "";
+      position: absolute;
+      background: ${lightGreen};
+      height: 3px;
+      width: 0%;
+      left: 0;
+      transition: 0.3s;
+      bottom: -5px;
+
+      :hover {
+        width: 100%;
+      }
+    }
+
+    :hover::after {
+      width: 100%;
     }
   }
-`;
 
-export const StyledSignUpli = styled.li`
-  a {
-    color: ${drakBlue};
+  & .login {
+    a {
+      color: ${drakBlue};
 
-    :hover {
-      color: ${white};
-      border-bottom: 3px solid ${white};
+      :hover {
+        color: ${white};
+      }
     }
+  }
+
+  & .active {
+    color: ${lightGreen} !important;
   }
 `;
 

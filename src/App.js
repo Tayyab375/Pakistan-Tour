@@ -29,7 +29,7 @@ function App() {
           {/* -------------pages------------- */}
 
           <Route path="/" element={<Home />} />
-          <Route path="/Pakistan" element={<Pakistan />} />
+          <Route path="/pakistan" element={<Pakistan />} />
           <Route path="/ptc" element={<Ptc />} />
           <Route path="/destinations" element={<Destinations />} />
           <Route path="/hotels" element={<Hotels />} />

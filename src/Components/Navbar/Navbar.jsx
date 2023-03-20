@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-//import "./Navbar.css";
-import { StyledNav } from "./Navbar.styled.js";
-import { LogoLink } from "./Navbar.styled.js";
-import { NavUnorderList } from "./Navbar.styled.js";
-import { StyledSignUpli } from "./Navbar.styled.js";
-import { ToggleIconDiv } from "./Navbar.styled.js";
+// styling
+import {
+  StyledNav,
+  LogoLink,
+  NavUnorderList,
+  ToggleIconDiv,
+} from "./Navbar.styled.js";
 
+//imgs
 import logo from "./Assets/Images/nav-logo.png";
+
+// link array
+import { link } from "./link.js";
 
 function Navbar() {
   const [click, setIcon] = useState(false);
@@ -24,36 +29,25 @@ function Navbar() {
           <h4>Pakistan Tourism Corporation</h4>
         </LogoLink>
         <NavUnorderList className={click ? "nav_active" : null}>
-          <li>
-            <Link to={"/"} onClick={navIconChange}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to={"/Pakistan"} onClick={navIconChange}>
-              Pakistan
-            </Link>
-          </li>
-          <li>
-            <Link to={"/ptc"} onClick={navIconChange}>
-              PTC
-            </Link>
-          </li>
-          <li>
-            <Link to={"/destinations"} onClick={navIconChange}>
-              Destinations
-            </Link>
-          </li>
-          <li>
-            <Link to={"/hotels"} onClick={navIconChange}>
-              Hotels
-            </Link>
-          </li>
-          <StyledSignUpli>
-            <Link to={"/log-in"} className="signup" onClick={navIconChange}>
-              Log in
-            </Link>
-          </StyledSignUpli>
+          {link.map((items, index) => {
+            return (
+              <li className={index === 5 ? "login" : null} key={index}>
+                <Link
+                  to={items.path}
+                  onClick={navIconChange}
+                  className={
+                    window.location.pathname === items.path && index !== 5
+                      ? "active"
+                      : window.location.pathname === "/log-in"
+                      ? null
+                      : null
+                  }
+                >
+                  {items.link}
+                </Link>
+              </li>
+            );
+          })}
         </NavUnorderList>
         <ToggleIconDiv onClick={navIconChange} className="nav_toggler">
           <i className={click ? " fa-solid fa-xmark " : "fa-solid fa-bars"} />
